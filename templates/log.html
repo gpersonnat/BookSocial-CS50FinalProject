@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Log
+{% endblock %}
+
+{% block content %}
+<form action="/log" class="log_form" method="post">
+
+    <div class="mb-3">
+        <input type="hidden" name="book_id" value="{{ book_id }}">
+        <input autocomplete="off" class="form-control log_input" autofocus id="pages" name="pages" placeholder="0" type="number">
+
+        <button class="btn btn-primary add_button" type="submit">Add</button>
+    </div>
+
+
+</form>
+
+
+{% endblock %}

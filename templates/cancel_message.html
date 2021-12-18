@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+<p>The event "{{ event.title }}" has been cancelled.</p>
+
+<h3>Details</h3>
+<ul>
+    <li>Date: {{ event.date }} </li>
+    <li>Time: {{ event.start_time }} to {{ event.end_time }}</li>
+    <li>Host: {{ event.first_name }} {{ event.last_name }}</li>
+  </ul>  
+
+  <p>Message: {{ message }}</p>
+
+</body>
+</html>

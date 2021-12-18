@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Error
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="error">
+
+
+ <h1>Error: {{ code }}</h1>
+ <p>{{message}}</p>
+
+ {% if route == "/book_info" %}
+
+
+{% else %}
+ <a href='{{ route }}'><button class="error_button btn btn-dark" type="button">Go Back</button></a>
+ {% endif %}
+
+
+</div>
+    
+
+
+
+
+{% endblock %}

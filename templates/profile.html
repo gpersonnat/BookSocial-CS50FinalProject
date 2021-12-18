@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="profile_body">
+
+    <h4>{{ profile.first_name }} {{ profile.last_name }}</h4>
+
+    {% if profile.profile_image=="default_profile.png" %}
+    <img class="rounded" src="/static/default_profile.png" alt="profile_image" height="200" width="200">
+
+
+    {% else %}
+    <img class="rounded" src="/static/uploads/{{ profile.profile_image }}" alt="profile_image" height="200" width="200">
+    {% endif %}
+
+    <div>
+
+
+
+
+        <p class="email_field"><strong>Email:</strong> {{ profile.email }}</li>
+        <p class="class_field"><strong>Class Year:</strong> {{ profile.class_year }}</li>
+        <p><strong>Bio:</strong> {{ profile.bio }}</li>
+
+    </div>
+
+
+
+    <a href='/update_profile'><button class="btn btn-primary update_profile_button" type="button">Update
+            Profile</button></a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search Results
+{% endblock %}
+
+{% block content %}
+
+<!-- https://mdbootstrap.com/docs/b4/jquery/forms/search/ -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <form method="post" action="/search" class="form-inline searchbar">
+
+        <input name="search" class="form-control form-control-sm ml-3 w-75 search_field col-md-2" type="text" placeholder="Search Book"
+          aria-label="Search">    
+          
+          <button type="submit" class="search_button"><i class="fa fa-search"></i></button>
+      </form>
+
+      {% if length < 1 %}
+
+      <h3 class="no_results">No Results Found</h3>
+
+    {% else %}
+
+    <table class="table table-search table-bordered">
+        <thead>
+            <!--Header row of table-->
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Book Cover</th>
+                <th>View</th>
+            </tr>          
+
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td><img src = "{{ book.image_link }}" alt = "{{ book.title }}" height="200" width="200"></td>
+                <td>
+                    <form action="/" method="post">
+                        <input type="hidden" name="book_id" value="{{ book.id }}">
+                        <input class="btn btn-info" type="submit"  name="submit" value="Info">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% endif %}
+
+
+
+
+   
+
+{% endblock %}

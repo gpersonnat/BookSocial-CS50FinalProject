@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Match Info
+{% endblock %}
+
+
+{% block content %}
+
+<div class="match_info_body">
+
+
+<!--Displays profile info-->
+
+<h3>{{ match_info.first_name }} {{ match_info.last_name }}</h3>
+
+{% if match_info.profile_image=="default_profile.png" %}
+
+<img class="rounded" src="/static/default_profile.png" alt="profile_image" height="200" width="200">
+
+{% else %}
+
+<img class= "rounded" src="/static/uploads/{{ match_info.profile_image }}" alt = "{{ match_info.last_name }}" height="400" width="400">
+
+{% endif %}
+
+<div class="match_details">
+
+<p><strong>Email:</strong> {{ match_info.email }}</p>
+
+<p><strong>Class Year:</strong> {{ match_info.class_year }}</p>
+
+
+<p><strong>Bio: </strong>{{ match_info.bio }}</p>
+
+{% if len_shared_books < 1 %}
+
+{% else %}
+
+<h5>You're Both Reading:</h5>
+
+{% for book in shared_books %} 
+
+
+<p>{{ book.title }}</p>
+<img src="{{ book.image }}" alt = "{{ book.title }}" height="400" width="400">
+
+
+{% endfor %}
+
+{% endif %}
+
+<form action="/connect" method="post">
+
+    <input type="hidden" name="user_id" value="{{ match_info.user_id }}">
+    <input class="btn btn-secondary connect_button" type="submit"  name="submit" value="Connect">
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Request Sent
+{% endblock %}
+
+{% block content %}
+
+<p class="request_done">Your request to {{ receiver.first_name }} {{ receiver.last_name }} has been sent.</p>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Friend Info
+{% endblock %}
+
+
+{% block content %}
+
+<div class="match_info_body">
+
+
+
+
+<h3 class="friend_info_reading">{{ friend.first_name }} {{ friend.last_name }} is Reading:</h3>
+
+
+
+
+{% for book in books %} 
+
+
+<p><strong>{{ book.book_title }}</strong> by {{ book.author }}</p>
+
+<img src="{{ book.image_link }}" alt = "{{ book.title }}" height="400" width="400">
+
+<hr>
+
+
+
+<form action="/friend_progress" method="post">
+
+    <input type="hidden" name="friend_id" value="{{ friend.user_id }}">
+    <input type="hidden" name="book_id" value="{{ book.book_id }}">
+    <input class="btn btn-primary friend_progress" type="submit"  name="submit" value="Progress">
+
+</form>
+
+
+{% endfor %}
+
+
+
+</div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<form action="/login" method="post" class="login-form">
+
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control" autofocus id="username" name="username" placeholder="Username" type="text">
+    </div>
+    <div class="mb-3">
+        <input id="password" class="form-control"  name="password" placeholder="Password" type="password">
+    </div>
+    <button type="submit" id="login_button" class="btn btn-primary">Log In</button>
+    <!-- <h6 href="/forgot">Forgot Password?</h6> -->
+    <!-- <a href="/forgot" id="forgot_password">Forgot Password?</a> -->
+
+</form>
+
+{% endblock %}

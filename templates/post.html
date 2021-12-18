@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Post
+{% endblock %}
+
+
+{% block content %}
+<form action="/post" id="post_form" method="post" enctype="multipart/form-data">
+    
+    <div class="mb-3">
+        <input class="form-control col-md-2" autocomplete="off" autofocus id="event_title" name="event_title" placeholder="Title"  type="text">
+    
+    </div>
+   
+    <input class="form-control col-md-2 date_field" type="date" id="date" name="date"
+       value="{{ today_date }}" min="{{ today_date }}">
+
+    
+    <div class="start_time">
+
+        <label id="start_time">Start Time</label>
+        <input class="form-control col-md-2 start_time" type="time" name="time" value="{{ today_date }}" min="{{ today_date }}">
+
+    </div>
+
+ 
+
+    <div>
+         <label class="end_time_label">End Time</label> 
+        <input class="form-control col-md-2 end_time" type="time" name="end_time">
+
+
+ <!-- https://stackoverflow.com/questions/66363446/python-flask-how-to-access-the-data-from-an-html-textarea-using-a-hyperlink-but?rq=1 (helped me figure out how to get value from textarea)-->
+
+ `  
+    <div>
+    <label class="file_label">Add Image</label>
+     <input class="file_event" type="file" name="file" autocomplete="off">
+    </div>
+
+    <div class="mb-3">
+       
+        <textarea name="message" id="text" class="form-control post_description" rows="4" placeholder="Description">{{ request.form['message'] }}</textarea>
+    </div>
+
+
+    <button class="btn btn-primary post_button" type="submit">Post Event</button>
+
+
+</div>
+
+</form>
+
+
+{% endblock %}

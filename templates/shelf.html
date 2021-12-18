@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Shelf
+{% endblock %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <!--Header row of table-->
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Book Cover</th>
+            <th>Progress</th>
+            <th>Remove</th>
+        </tr>          
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.book_title }}</td>
+            <td>{{ book.author }}</td>
+            <td><img src = "{{ book.book_image }}" alt = "{{ book.book_title }}" height="200" width="200"></td>
+            <td>
+                <form action="/shelf" method="post">
+                    <input type="hidden" name="book_id" value="{{ book.book_id }}">
+                    <input type="submit" class="btn btn-success"  name="submit" value="View">
+                </form>
+            </td>
+
+            <td>
+                <form action = "/remove_book" method="post">
+                    <input type="hidden" name="book_id" value="{{ book.book_id }}">
+                    <input class="btn btn-secondary" type="submit"  name="submit" value="Remove">
+                </form>
+
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+
+
+</table>
+
+
+
+
+{% endblock %}

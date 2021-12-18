@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Requests
+{% endblock %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <!--Header row of table-->
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Class Year</th>
+            <th>Image</th>
+            <th></th>
+        </tr>          
+    </thead>
+    <tbody>
+        {% for request in requests %}
+        <tr>
+            <td>{{ request.first_name }} {{ request.last_name }}</td>
+            <td>{{ request.email }}</td>
+            <td>{{ request.class_year }}</td>
+            {% if request.profile_image == "default_profile.png" %}
+            <td><img src = "/static/default_profile.png" alt = "{{ request.first_name }}" height="200" width="200"></td>
+            {% else %}
+            <td><img src = "/static/uploads/{{ request.profile_image }}" alt = "{{ request.first_name }}" height="200" width="200"></td>
+            {% endif %}
+            
+            {% if request.status == "ACCEPTED" %}
+            <td>
+                
+                
+                <form action="/unfriend" id="{{ request.sender_id }}" method="post">
+                    <input type="hidden" id="sender_id" name="sender_id" value="{{ request.sender_id }}">
+                    <input type="hidden" id="status" value="{{ request.status }}">
+                    <input class="btn btn-danger" type="submit" value="Unfriend">
+                    </form>
+
+                    </td>
+                {% endif %}
+                
+                {% if request.status == "SENT" %}
+                <td>
+               <form action="/accept" id="{{ request.sender_id }}" method="post">
+                <input type="hidden" id="sender_id" name="sender_id" value="{{ request.sender_id }}">
+                <input type="hidden" id="status" value="{{ request.status }}">
+                <input type="hidden" name="requests_length" value="{{ requests|length }}">
+                <input class="btn btn-primary" type="submit" value="Accept">
+               </form>
+
+            </td>
+            {% endif %}
+              
+           
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+
+{% endblock %}
+

@@ -1,0 +1,472 @@
+
+.login-form, .register-form{
+    display:table; 
+    margin:auto;
+    position: relative;
+    top: 120px;
+}
+
+#login_button{
+    position: relative;
+    left: 55px;
+}
+
+#register-button{
+    position: relative;
+    left: 30px;
+}
+
+.create_profile-form{
+    text-align: center;
+    position: relative;
+    top: 60px;
+}
+
+.genre_select{
+    width: 150px;
+}
+
+
+#create_profile_heading{
+    text-align: center;
+    position: relative; 
+    top: 20px;
+    font-size: 45px;
+}
+
+.col-md-2{
+    position: relative;
+    left: 460px;
+    bottom: 25px;
+}
+
+#create_profile_button{
+    position: relative;
+    top: 45px;
+}
+
+#upload_image{
+    position: relative;
+    top: 15px;
+    left: 115px;
+}
+
+.bi{
+    position: relative;
+    left: 10px;
+}
+
+.search_field {
+    position: relative;
+    left: 70%;
+    top: 18px;
+}
+
+.search_button{
+    position: relative;
+    left: 780px;
+    top: 18px;
+    background-color: white;
+    border-color: white;
+}
+
+
+.table-dashboard{
+    position: relative;
+    top: 40px;
+    width: 1100px;
+    left: 2%;
+
+}
+
+.table-search{
+    position: relative;
+    top: 40px;
+}
+
+
+.chart{
+    width: 900px;
+    height: 900px;
+}
+
+.log_button{
+    position: relative;
+    top: 30px;
+}
+
+#update_profile_form{
+    position: relative; 
+    top: 120px;
+}
+
+#update_button{
+    position: relative; 
+    left: 45%;
+    top: 55px;
+}
+
+#update_image{
+    position: relative;
+    left: 45%;
+    top: 25px;
+}
+
+#forgot_password{
+    position: relative;
+    top: 50px;
+    right: 43px;
+}
+
+#reset_password{
+    position: relative;
+    top: 200px;
+}
+
+#reset_button{
+    position: relative;
+    left: 510px;
+    top: 200px;
+}
+
+#username_reset{
+    position: relative;
+    top: 100px;
+}
+
+.post_event{
+    position: relative;
+    left: 1150px;
+    top: 35px;
+
+}
+
+#post_form{
+    position: relative;
+    top: 200px;
+    margin-bottom: 500px;
+}
+
+.post_button{
+    position: relative;
+    top: 120px;
+    left: 495px;
+}
+
+#calendar {
+    max-width: 900px;
+    margin: 40px auto;
+  }
+
+
+
+#time{
+    width: 200px;
+    position: relative;
+    left: 620px;
+    top: 200px;
+
+}
+
+
+.matches{
+    position: relative;
+    top: 50px;
+}
+
+.view_event{
+    position: relative;
+    top: -2.5px;
+    left: 1050px;
+}
+
+#cancel_message{
+    font-size: 18pt;
+    height: 42px;
+    width : 300px;
+}
+
+.cancel_message{
+    width: 400px;
+    position: relative;
+    left: 350px;
+}
+
+.cancel_button{
+    position: relative;
+    top: 30px;
+    left: 475px;
+}
+
+.post_description{
+    position: relative;
+    left: 410px;
+    width: 300px;
+    top: 100px;
+}
+
+.bio{
+    width: 300px;
+    position: relative; 
+    left: 400px;
+}
+
+.update_bio{
+    width: 300px;
+    position: relative;
+    left: 400px;
+}
+
+.navbar{
+    height: 65px;
+}
+
+
+.error{
+    text-align: center;
+    position: relative;
+    top: 200px;
+}
+
+.book_image_info{
+    position: relative;
+    left: 40%;
+    top: 10px;
+}
+
+.book_info{
+    text-align: center;
+    position: relative;
+    top: 40px;
+}
+
+.book_info_title{
+    font-style: italic;
+}
+
+.request_done{
+    text-align: center;
+    position: relative;
+    top: 200px;
+}
+
+
+.info_body{
+
+    margin-bottom: 250px;
+    
+}
+
+nav{
+    background-color: rgb(229, 237, 242);
+}
+
+.no_results{
+    text-align: center;
+    position: relative;
+    top: 250px;
+}
+
+canvas{
+    position: relative;
+    top: 100px;
+}
+
+.log{
+    position: relative;
+    top: 120px;
+}
+
+.progress_body{
+    margin-bottom: 200px;
+}
+
+.progress_details{
+    text-align: center;
+    position: relative;
+    top: 80px;
+}
+
+.log_form{
+    position: relative;
+    top: 200px;
+    left: 500px;
+}
+
+.add_button{
+    position: relative;
+    top: 20px;
+    left: 15px;
+}
+
+.log_input{
+    width: 100px;
+}
+
+.match_info_body{
+    text-align: center;
+    position: relative;
+    top: 100px;
+    margin-bottom: 300px;
+}
+
+.match_details{
+    position: relative;
+    top: 35px;
+}
+.connect_button{
+    position: relative;
+    top: 60px;
+}
+
+.profile_body{
+    text-align: center;
+    position: relative;
+    top: 80px;
+}
+
+.email_field{
+    position: relative;
+    top: 20px;
+}
+
+.class_field{
+    position: relative;
+    top: 10px;
+}
+
+.update_profile_button{
+    position: relative;
+    top: 60px;
+}
+
+.unfriend{
+    position: relative;
+    right: 5px;
+    top: 50px;
+}
+
+
+.friend_info{
+    position: relative;
+    right: 10px;
+    top: 50px;
+}
+
+.friend_progress{
+    position: relative;
+    bottom: 250px;
+    left: 400px;
+}
+
+
+.friend_info_reading{
+    position: relative;
+    bottom: 30px;
+}
+.events_page{
+    margin-top: 50px;
+}
+
+#start_time{
+    position: relative;
+    left: 500px;
+    top: -5px;
+}
+/*
+*/
+
+.start_time{
+    position: relative;
+    bottom: 6px;
+    
+}
+
+#end_time{
+    position: relative;
+    left: 670px;
+    top: 200px;
+}
+
+.end_time_label{
+    position: relative;
+    left: 510px;
+    top: 10px;
+}
+
+.end_time{
+    position: relative;
+    top: 15px;
+}
+
+
+
+.date_field{
+    z-index: 0;
+}
+
+.meeting_info_body{
+    text-align: center;
+    position: relative;
+    top: 120px;
+}
+
+.file_event{
+    position: relative;
+    left: 380px;
+    top: 70px;
+}
+
+.file_label{
+    position: relative;
+    left: 500px;
+    top: 25px;
+}
+
+#event_title{
+    position: relative; 
+    bottom: 60px;
+}
+
+.meeting_image{
+    height: 300px;
+    width: 300px;
+}
+
+.attendees{
+    position: relative;
+    bottom: 400px;
+    left: 950px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.attendee_image{
+    border-radius: 50%;
+    position: relative;
+    left: 80px;
+}
+
+.attendee_name{
+    font-size: 18px;
+    position: relative;
+    right: 120px;
+    top: 60px;
+}
+
+.attendee_list{
+    position: relative;
+    position: relative;
+    bottom: 450px;
+    left: 1000px;
+    margin-top: 1px;
+}
+
+.attendees_label{
+    position: relative;
+    position: relative;
+    bottom: 420px;
+    left: 950px;
+}

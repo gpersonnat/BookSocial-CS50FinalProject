@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Friends
+{% endblock %}
+
+
+{% block content %}
+
+<table class="table table_friends">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Class Year</th>
+            <th>Image</th>
+            <th>Info</th>
+            <th>Unfriend</th>
+    
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for friend in friends %}
+        <tr>
+            <td>{{ friend.first_name }}</td>
+            <td>{{ friend.last_name }}</td>
+            <td>{{ friend.email }}</td>
+            <td>{{ friend.class_year }}</td>
+            {% if friend.profile_image == "default_profile.png" %}
+            <td><img src = "/static/default_profile.png" alt = "{{ friend.first_name }}" height="150" width="150"></td>
+            {% else %}
+            <td><img src = "/static/uploads/{{ friend.profile_image }}" alt = "{{ friend.first_name }}" height="200" width="200"></td>
+            {% endif %}
+
+            <td>
+                    <form action="/friend_info" id="{{ friend.user__id }}" method="post">
+                        <input type="hidden" id="sender_id" name="friend_id" value="{{ friend.user_id }}">
+                        <input class="btn btn-info friend_info" type="submit" value="Info">
+                        </form>
+                    
+            </td>
+
+            <td>
+                
+                    <form action="/remove_friend" id="{{ friend.user__id }}" method="post">
+                        <input type="hidden" id="sender_id" name="friend_id" value="{{ friend.user_id }}">
+                        <input class="btn btn-danger unfriend" type="submit" value="Unfriend">
+                        </form>
+                    
+            </td>
+
+
+        </tr>
+    
+        {% endfor %}
+    </tbody>
+    
+    
+    </table>
+
+
+{% endblock %}

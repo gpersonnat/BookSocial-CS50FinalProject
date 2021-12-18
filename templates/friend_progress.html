@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Progress
+{% endblock %}
+
+{% block content %}
+
+<div class="progress_body">
+
+
+<div class="progress_details">
+
+<p><strong>Pages Read:</strong> {{ progress.pages_read }}</p>
+
+
+<p><strong>Progress:</strong> {{ progress.progress_percentage | round }}% </p>
+
+<p><strong>Pages Left:</strong> {{ pages_left }}</p>
+
+</div>
+
+
+
+
+
+    <canvas id="myChart" class="chart"></canvas>
+ 
+  
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+// Source for Line Chart-used code as a template: https://www.chartjs.org/docs/latest/charts/line.html
+
+    // Define labels (log_times from Python): Pass into Jinja
+    // The red marks do not indicate an error
+    const labels =
+  {{ labels | tojson }};
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Pages Read',
+    backgroundColor: 'rgb(0,0,255)',
+    borderColor: 'rgb(0,0,255)',
+    // y-axis variables
+    data: {{ values | tojson }},
+  }]
+};
+
+
+const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+  
+</script>
+
+
+
+</div>
+
+{% endblock %}

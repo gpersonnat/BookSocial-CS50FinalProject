@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Update Profile
+{% endblock %}
+
+
+{% block content %}
+<form action="/update_profile" id="update_profile_form" method="post" enctype="multipart/form-data">
+    
+    <div class="mb-3">
+        <input class="form-control col-md-2" autocomplete="off" autofocus id="first_name" name="first_name" value="{{ profile.first_name }}" placeholder="{{ profile.first_name }}" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control col-md-2" autocomplete="off" autofocus id="last_name" name="last_name" value="{{ profile.last_name }}" placeholder="{{ profile.last_name }}" type="text">
+    </div>
+    <div>
+        <input class="form-control col-md-2" autocomplete="off" autofocus id="email" name="email" value="{{ profile.email }}" placeholder="{{ profile.email }}" type="email">
+    </div>
+
+    <div>
+        <textarea name="message" id="text" class="form-control update_bio" rows="4" placeholder="{{ profile.bio }}">{{ request.form['message'] }}</textarea>
+    </div>
+
+    <div>
+        <input type="file" name="file" autocomplete="off" id="update_image">
+    </div>
+
+
+    <button id="update_button" class="btn btn-primary" type="submit">Update</button>
+
+
+</form>
+
+
+{% endblock %}

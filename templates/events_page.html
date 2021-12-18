@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Events
+{% endblock %}
+
+
+{% block content %}
+
+<div class="events_page">
+
+
+<table class="table">
+
+    <h4>Upcoming Events</h4>
+    <thead>
+        <!--Header row of table-->
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Info</th>
+            <th>Decline</th>
+        </tr>          
+    </thead>
+    <tbody>
+        {% for event in attending_events %}
+        <tr>
+            <td>{{ event.title }}</td>
+            <td>{{ event.date }}</td>
+            <td>{{ event.start_time }}</td>
+
+            <td>
+                <form action = "/meeting_info" method="post">
+                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                    <input type="hidden" name="creator_id" value="{{ event.creator_id }}">
+                    <input class="btn btn-info" type="submit"  name="submit" value="Info">
+                </form>
+            </td>
+
+            <td>
+
+                {% if event.creator_id == session["user_id"] %}
+                <form action = "/cancel_button" method="post">
+                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                    <input class="btn btn-danger" type="submit"  name="submit" value="Cancel">
+                </form>
+
+                {% else %}
+
+                <form action = "/decline" method="post">
+                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                    <input class="btn btn-secondary" type="submit"  name="submit" value="Decline">
+                </form>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h4>New Events</h4>
+
+<table class="table">
+
+    <thead>
+        <!--Header row of table-->
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Info</th>
+            <th>Signup</th>
+        </tr>          
+    </thead>
+    <tbody>
+        {% for event in friend_events %}
+        <tr>
+            <td>{{ event.title }}</td>
+            <td>{{ event.date }}</td>
+            <td>{{ event.start_time }}</td>
+
+            <td>
+                <form action="/meeting_info" method="post">
+                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                    <input type="hidden" name="creator_id" value="{{ event.creator_id }}">
+                    <input class="btn btn-info" type="submit"  name="submit" value="Info">
+                </form>
+
+            </td>
+
+            <td>
+                <form action = "/signup" method="post">
+                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                    <input class="btn btn-success" type="submit"  name="submit" value="Signup">
+                </form>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}

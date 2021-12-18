@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block title %}
+Events
+{% endblock %}
+{% block content %}
+  <link href='/assets/demo-to-codepen.css' rel='stylesheet' />
+  <!--Used this as a template: https://fullcalendar.io/docs/initialize-globals -->
+   <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+ 
+ 
+ <!-- <script src='/assets/demo-to-codepen.js'></script> -->
+ <script>
+ 
+  
+   document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+     var calendar = new FullCalendar.Calendar(calendarEl, {
+ 
+
+ 
+ 
+      initialView: 'dayGridMonth',
+      initialDate: '{{ today_date }}',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      events: [
+      
+      {% for event in attending_events %}
+      {
+          title: '{{ event.title }}',
+          start: '{{ event.date }}T{{ event.start_time }}:00',
+          end: '{{ event.date }}T{{ event.start_time }}:00',
+          color: 'green'
+      },
+      {% endfor %}
+
+      {% for event in friend_events %}
+      {
+          title: '{{ event.title }}',
+          start: '{{ event.date }}T{{ event.start_time }}:00',
+          end: '{{ event.date }}T{{ event.start_time }}:00',
+          color: 'red'
+      },
+      {% endfor %}
+
+
+    
+      ]
+    
+    
+    
+    });
+  
+     calendar.render();
+  });
+ </script>
+<a href="/post"><button class="post_event btn btn-primary">Post</button></a>
+
+<form action="/events" method="post">
+
+<button class="view_event btn btn-primary">View</button>
+
+</form>
+
+<div id='calendar'></div>
+{% endblock %}
+ 
+
